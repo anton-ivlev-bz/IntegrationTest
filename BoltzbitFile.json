@@ -1,48 +1,45 @@
 {
-  "id": "61fa9717a2d1520de8b7b049",
-  "createdBy": "demo-user",
-  "createdAt": "Feb 2, 2022 2:37:11 PM",
+  "id": "6262d85de267eb19ad70da01",
+  "createdBy": "test-user",
+  "createdAt": "Apr 22, 2022 5:31:25 PM",
   "sharedWith": [
     {
       "userGroupId": "PUBLIC",
       "accessLevel": "READ_ONLY"
+    },
+    {
+      "userGroupId": "test-user",
+      "accessLevel": "OWNER"
     }
   ],
-  "cubeId": "61fa9717a2d1520de8b7b048",
-  "datasetId": "61fa9277e566274b589c3da3",
-  "modelId": "61fa929a6a80927101c072ac",
-  "dataProcessingConfig": {
-    "steps": [
-      {
-        "operation": "RESCALE"
-      }
-    ]
-  },
+  "cubeId": "6262d85ce267eb19ad70da00",
+  "datasetId": "62602e0f1005d511d73daacc",
+  "modelId": "626198ab9c183f30ba5d699e",
   "trainingConfig": {
+    "ckpt_file": "ckpt.npz",
+    "dtype": "float32",
     "batch_size": 100,
     "infer": {
-      "lkh_weight": 1,
+      "lkh_weight": 10,
       "min_eps": 0.001,
       "nlayers": 10,
-      "lfsteps": 6,
-      "momentum_std": 0.1,
+      "lfsteps": 5,
       "initial_log_eps": -3,
       "initial_ei_prior_mean": 0,
-      "initial_ei_prior_std": 1,
-      "stop_gradient_pot": false
+      "initial_ei_prior_std": 1
     },
     "train": {
-      "trn_weight": 1,
+      "trn_weight": 10,
       "optimizer": {
-        "learning_rate_init": 5e-3,
-        "learning_rate_change_points": 200,
-        "learning_rate_change_values": 0.99,
-        "learning_rate_inf_init": 5e-3,
-        "learning_rate_inf_change_points": 200,
-        "learning_rate_inf_change_values": 0.99
+        "learning_rate_init": 2e-4,
+        "learning_rate_change_points": [],
+        "learning_rate_change_values": [],
+        "learning_rate_inf_init": 2e-4,
+        "learning_rate_inf_change_points": [],
+        "learning_rate_inf_change_values": []
       },
-      "max_iter": 500,
-      "save_period": 50,
+      "max_iter": 2000,
+      "save_period": 200,
       "logging_period": 10
     },
     "dataloader": {
@@ -53,14 +50,17 @@
   },
   "evaluationConfig": {
     "method": "EVAL_DEFAULT",
-    "trainingJobId": "61fa971746a7645b1c6cafe6",
-    "datasetId": "61fa9277e566274b589c3da3",
+    "trainingJobId": "6262d85ddc34a332f306cc0d",
+    "datasetId": "62602e0f1005d511d73daacc",
     "taskIds": [
-      "61fa93e1e566274b589c3da4",
-      "61fa93e1e566274b589c3da5",
-      "61fa93e1e566274b589c3da6"
+      "626198ad834461053154edf7",
+      "626198ad834461053154edf8",
+      "626198ad834461053154edf9"
     ],
     "metrics": [
+      {
+        "type": "R2"
+      },
       {
         "type": "AVERAGE_LOG_LOSS"
       },
@@ -80,5 +80,6 @@
         "type": "ROC_CURVE"
       }
     ]
-  }
+  },
+  "status": "SUBMITTED"
 }
